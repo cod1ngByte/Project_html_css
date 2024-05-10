@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background-color: #f2f2f2;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 15px;
+}
+a {
+    color: inherit; /*from parent inherit here a parent is card if card doesn't have color it will inherit from its parent*/
+    text-decoration: none;
+    display: inline-block;
+}
+main {
+    min-height: 100vh;
+    padding: 1rem;
+    /* to center card container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-container {
+    color: #ffffffbf;
+    max-width: 910px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden; /*agar child overflow kar rha to parent mai overflow hidden de do*/
+    /* margin: auto; agar display flex parent mai hai to v center ho jaega bina aling-items center and justify-content center k using margin auto and margin top and bottom tabhi kaam karega jb parent mai display flex hoga*/
+}
+.card {
+    padding: 3rem;
+    /* to make all card of equal width */
+    flex-basis: 100%;
+    /* sare child of card(yaha pe sare cards) jo ki h2 p and a hai wo upar niche na ho koi v card mai sab sahi se format ho  */
+    display: flex;
+    flex-direction: column;
+}
+.card img {
+    /* display flex column mai icon pura horizontal space le rha tha to width n height dena para */
+    width: 64px;
+    height: 40px;
+}
+.card p {
+    opacity: 0.7;
+    line-height: 1.75; /*jitna font size hai utna se multiply kar do, 15px * 1.75 = 28px*/
+    margin-bottom: auto; /*margin top and bottom tabhi kaam karta h jb parent flex ho(yaha pe parent of p card hai)*/
+}
+.card a {
+    border: 2px solid #f2f2f2;
+    padding: 1em 2em; /*space between border and content, jb v space dena ho content k bich use padding*/
+    border-radius: 2em;
+    margin-top: 2rem;
+    margin-right: auto; /*jab mobile mai flex direction column hoga to align-items stretch hoga (width pura lega) a element ka, par mujhe a element ka size sahi rakhna hai to margin auto karke uska right space auto adjust kr rha hai*/
+}
+.card1 {
+    background-color: #e38826;
+}
+.card2 {
+    background-color: #006970;
+}
+.card3 {
+    background-color: #004241;
+}
+
+.card-container h2 {
+    color: #f2f2f2;
+    text-transform: uppercase;
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 835px) {
+    .card-container {
+        flex-direction: column;
+        max-width: 380px;
+    }
+    .card {
+        width: unset;
+    }
+
+    .card1 {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .card3 {
+        border-radius: 0 0 8px 8px;
+    }
+}
